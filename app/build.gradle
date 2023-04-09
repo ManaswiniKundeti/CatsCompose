@@ -73,6 +73,8 @@ dependencies {
     implementation "androidx.compose.runtime:runtime:1.4.1"
     implementation "androidx.compose.runtime:runtime-livedata:1.4.1"
     implementation "androidx.compose.ui:ui-tooling:1.4.1"
+    // provide viewmodel to HILT
+    implementation "androidx.hilt:hilt-navigation-compose:1.1.0-alpha01"
 
     // Timber - Logging
     implementation "com.jakewharton.timber:timber:5.0.1"
