@@ -3,19 +3,18 @@ package com.example.catscompose.ui.main
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.catscompose.BuildConfig
 import com.example.catscompose.ui.Breed.BreedsScreen
+import com.example.catscompose.ui.Breed.TitleText
 import com.example.catscompose.ui.theme.CatsComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -28,23 +27,23 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    BreedsScreen(hiltViewModel())
+                    Column(modifier = Modifier.padding(10.dp)) {
+                        TitleText(name = "cat lover")
+                        Spacer(modifier = Modifier.height(20.dp))
+                        BreedsScreen(hiltViewModel())
+                    }
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-    Timber.d(BuildConfig.CatsApiKey)
-}
+
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     CatsComposeTheme {
-        Greeting("Android")
+        TitleText("Android")
     }
 }
