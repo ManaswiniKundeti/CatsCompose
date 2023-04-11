@@ -1,13 +1,10 @@
 package com.example.catscompose.ui.Breed
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
@@ -19,9 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -47,7 +42,7 @@ fun TitleText(name: String) {
 }
 
 @Composable
-fun BreedsScreen(viewModel: MainViewModel) {
+fun BreedsList(viewModel: MainViewModel) {
     val breedList: List<Breed> by viewModel.breedsList.collectAsState(initial = listOf())
 
     LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 150.dp))
@@ -83,7 +78,7 @@ fun ImageCard(
                 AsyncImage(
                     model = "https://cdn2.thecatapi.com/images/${imageRes}.jpg",
                     contentDescription = null,
-                    contentScale = ContentScale.Crop,
+                    contentScale = ContentScale.FillBounds,
                     modifier = Modifier
                         .clip(CircleShape)
                         .width(150.dp)

@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.catscompose.ui.Breed.BreedsScreen
+import com.example.catscompose.ui.Breed.BreedsList
 import com.example.catscompose.ui.Breed.TitleText
 import com.example.catscompose.ui.theme.CatsComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     Column(modifier = Modifier.padding(10.dp)) {
                         TitleText(name = "cat lover")
                         Spacer(modifier = Modifier.height(20.dp))
-                        BreedsScreen(hiltViewModel())
+                        BreedsList(hiltViewModel())
                     }
                 }
             }
