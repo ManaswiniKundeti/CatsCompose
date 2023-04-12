@@ -9,10 +9,6 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.catscompose.ui.Breed.BreedsList
-import com.example.catscompose.ui.Breed.TitleText
 import com.example.catscompose.ui.theme.CatsComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,11 +23,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Column(modifier = Modifier.padding(10.dp)) {
-                        TitleText(name = "cat lover")
-                        Spacer(modifier = Modifier.height(20.dp))
-                        BreedsList(hiltViewModel())
-                    }
+                    MainScreen()
                 }
             }
         }
@@ -43,7 +35,7 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    CatsComposeTheme {
-        TitleText("Android")
-    }
+//    CatsComposeTheme {
+//        TitleText("Android")
+//    }
 }
