@@ -1,6 +1,8 @@
 package com.example.catscompose.ui.main
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -9,6 +11,9 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Details
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -17,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -32,8 +38,8 @@ import coil.compose.AsyncImage
 import com.example.catscompose.BuildConfig
 import com.example.catscompose.model.Breed
 import com.example.catscompose.ui.details.BreedDetails
-import com.example.catscompose.ui.main.MainViewModel
 import timber.log.Timber
+import com.example.catscompose.R
 
 @Composable
 fun MainScreen() {
@@ -45,7 +51,7 @@ fun MainScreen() {
             Column(modifier = Modifier.padding(10.dp)) {
                 TitleText(name = "cat lover")
                 Spacer(modifier = Modifier.height(20.dp))
-                BreedsList(
+                MainConent(
                     viewModel = hiltViewModel(),
                     selectBreed = { breedId ->
                         navController.navigate(route = "${ScreenNavigator.Details.route}/$breedId")
@@ -89,30 +95,34 @@ fun TitleText(name: String) {
 }
 
 @Composable
-fun BreedsList(viewModel: MainViewModel, selectBreed: (Long) -> Unit) {
+fun MainConent(viewModel: MainViewModel, selectBreed: (String) -> Unit) {
 
     val breedList: List<Breed> by viewModel.breedsList.collectAsState(initial = listOf())
 
+    HomeContent(breedList, selectBreed)
+}
+
+@Composable
+fun HomeContent(breedList: List<Breed>, selectBreed: (String) -> Unit) {
     LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 150.dp))
     {
         items(breedList) { breed ->
-            breed.referenceImageId?.let {
-                ImageCard(imageRes = it, origin = breed.origin, name = breed.name) }
+            ImageCard(breed, selectBreed)
         }
     }
 }
 
 @Composable
 fun ImageCard(
-    imageRes: String,
-    origin: String,
-    name: String,
+    breed: Breed,
+    selectBreed: (String) -> Unit,
     passedModifier: Modifier = Modifier
 ) {
     Card(
         modifier = passedModifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(16.dp)
+            .clickable(onClick = {selectBreed(breed.id)}),
         shape = RoundedCornerShape(15.dp),
         elevation = 5.dp
 
@@ -124,7 +134,7 @@ fun ImageCard(
                 .padding(10.dp)
             ) {
                 AsyncImage(
-                    model = "https://cdn2.thecatapi.com/images/${imageRes}.jpg",
+                    model = "https://cdn2.thecatapi.com/images/${breed.referenceImageId}.jpg",
                     contentDescription = null,
                     contentScale = ContentScale.FillBounds,
                     modifier = Modifier
@@ -141,7 +151,7 @@ fun ImageCard(
                 contentAlignment = Alignment.BottomCenter
             ) {
                 Text(
-                    text = name,
+                    text = breed.name,
                     style = TextStyle(
                         color = Color.Blue,
                         fontWeight = FontWeight.Bold
@@ -159,4 +169,3 @@ sealed class ScreenNavigator(val route: String) {
         const val argument0: String = "breedId"
     }
 }
-
