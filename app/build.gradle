@@ -73,6 +73,10 @@ dependencies {
     implementation "androidx.compose.runtime:runtime:1.4.1"
     implementation "androidx.compose.runtime:runtime-livedata:1.4.1"
     implementation "androidx.compose.ui:ui-tooling:1.4.1"
+
+    // Update system UI bar colors inside compose
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.28.0"
+
     // provide viewmodel to HILT
     implementation "androidx.hilt:hilt-navigation-compose:1.1.0-alpha01"
 

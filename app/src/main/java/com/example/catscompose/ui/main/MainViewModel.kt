@@ -1,5 +1,6 @@
 package com.example.catscompose.ui.main
 
+import androidx.annotation.StringRes
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -24,7 +25,14 @@ class MainViewModel @Inject constructor(
         onError = { Timber.d(it) }
     )
 
+    private val _selectedTab: MutableState<Int> = mutableStateOf(0)
+    val selectedTab: State<Int> get() = _selectedTab
+
     init {
         Timber.d("Injecting MainViewModel")
+    }
+
+    fun selectTab(@StringRes tab: Int) {
+        _selectedTab.value = tab
     }
 }

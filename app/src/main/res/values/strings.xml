@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">CatsCompose</string>
+    <string name="app_name">Cats Compose</string>
+    <string name="bottom_nav_home">Home</string>
+    <string name="bottom_nav_details">Details</string>
 </resources>
