@@ -161,7 +161,7 @@ fun MainConent(
 @Composable
 fun CatsBottomBar(tabs: Array<BottomNavTab>, selectedTab: BottomNavTab, viewModel: MainViewModel) {
     BottomNavigation(
-        backgroundColor = Color(0xFF651FFF),
+        backgroundColor = MaterialTheme.colors.primary, //Color(0xFF651FFF),
         modifier = Modifier.navigationBarsPadding()
     ) {
         tabs.forEach { tab ->
@@ -181,7 +181,7 @@ fun CatsBottomBar(tabs: Array<BottomNavTab>, selectedTab: BottomNavTab, viewMode
 fun CatsAppBar() {
     TopAppBar(
         elevation = 6.dp,
-        backgroundColor = Color(0xFF651FFF),
+        backgroundColor = MaterialTheme.colors.primary,  //Color(0xFF651FFF)
         modifier = Modifier
             .statusBarsPadding()
             .height(58.dp)
@@ -233,10 +233,10 @@ fun ImageCard(
         elevation = 5.dp
 
     ) {
-        Column {
+        Column(modifier = Modifier.background(MaterialTheme.colors.onBackground)) {
             Box(modifier = Modifier
                 .height(180.dp)
-                .background(Color.LightGray)
+                .background(MaterialTheme.colors.onBackground)
                 .padding(10.dp)
             ) {
                 AsyncImage(
@@ -259,7 +259,7 @@ fun ImageCard(
                 Text(
                     text = breed.name,
                     style = TextStyle(
-                        color = Color.Blue,
+                        color = MaterialTheme.colors.primary,
                         fontWeight = FontWeight.Bold
                     ),
                     fontSize = 20.sp)
