@@ -73,14 +73,14 @@ fun BreedDetails(
                         Text(
                             text = "Name : ",
                             style = TextStyle(
-                                color = Color.Black,
+                                color = MaterialTheme.colors.primary,
                                 fontWeight = FontWeight.SemiBold
                             ),
                             fontSize = 20.sp)
                         Text(
                             text = it.name,
                             style = TextStyle(
-                                color = Color.Blue,
+                                color = MaterialTheme.colors.secondary,
                                 fontWeight = FontWeight.Normal,
                                 fontFamily = FontFamily.SansSerif
                             ),
@@ -93,7 +93,7 @@ fun BreedDetails(
                         Text(
                             text = "Origin : ",
                             style = TextStyle(
-                                color = Color.Black,
+                                color = MaterialTheme.colors.primary,
                                 fontWeight = FontWeight.SemiBold
                             ),
                             fontSize = 20.sp
@@ -101,7 +101,7 @@ fun BreedDetails(
                         Text(
                             text = it.origin,
                             style = TextStyle(
-                                color = Color.Blue,
+                                color = MaterialTheme.colors.secondary,
                                 fontWeight = FontWeight.Normal,
                                 fontFamily = FontFamily.SansSerif
                             ),
@@ -115,7 +115,7 @@ fun BreedDetails(
                         Text(
                             text = "Description : ",
                             style = TextStyle(
-                                color = Color.Black,
+                                color = MaterialTheme.colors.primary,
                                 fontWeight = FontWeight.SemiBold
                             ),
                             fontSize = 20.sp
@@ -123,7 +123,7 @@ fun BreedDetails(
                         Text(
                             text = it.description,
                             style = TextStyle(
-                                color = Color.Blue,
+                                color = MaterialTheme.colors.secondary,
                                 fontWeight = FontWeight.Normal,
                                 fontFamily = FontFamily.SansSerif
                             ),
@@ -137,7 +137,7 @@ fun BreedDetails(
                         Text(
                             text = "Lifespan : ",
                             style = TextStyle(
-                                color = Color.Black,
+                                color = MaterialTheme.colors.primary,
                                 fontWeight = FontWeight.SemiBold
                             ),
                             fontSize = 20.sp)
@@ -145,7 +145,7 @@ fun BreedDetails(
                             Text(
                                 text = it1+"yrs",
                                 style = TextStyle(
-                                    color = Color.Blue,
+                                    color = MaterialTheme.colors.secondary,
                                     fontWeight = FontWeight.Normal,
                                     fontFamily = FontFamily.SansSerif
                                 ),
@@ -155,7 +155,7 @@ fun BreedDetails(
                     }
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,
-                        tint = Color.Blue,
+                        tint = MaterialTheme.colors.primary,
                         contentDescription = null,
                         modifier = Modifier
                             .padding(12.dp)
@@ -172,7 +172,7 @@ fun BreedDetails(
             modifier = Modifier
                 .padding(5.dp)
                 .size(10.dp, 10.dp),
-            color = Color.Green
+            color = MaterialTheme.colors.primary
         )
     }
 }

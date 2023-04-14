@@ -7,15 +7,14 @@ val Purple500 = Color(0xFF6200EE)
 val Purple700 = Color(0xFF3700B3)
 val Teal200 = Color(0xFF03DAC5)
 
-// Theme Colors
-//val vibrant = Color(0xFF117f81)
-//val vibrant = Color(0xFF8db9b6)
+// Custom Theme Colors
+val Orange900 = Color(0xFFBF360C)
+val Orange700 = Color(0xFFE64A19)
+val Gray50 = Color(0xFFF2F2F2)
+val Gray200 = Color(0xFFBDBDBD)
+val Gray700 = Color(0xFF616161)
 
-val grey50 = Color(0xFFECEFF1)
-val grey100 = Color(0xFFCFD8DC)
-val grey900 = Color(0xFF263238)
-val grey800 = Color(0xFF37474F)
-
-val orange50 = Color(0xFFFBE9E7)
-val orange900 = Color(0xFFBF360C)
-val orange700 = Color(0xFFE64A19)
+val Orange500 = Color(0xFFFF6F00)
+val Gray900 = Color(0xFF212121)
+val Gray500 = Color(0xFF9E9E9E)
+val Gray100 = Color(0xFFEEEEEE)
