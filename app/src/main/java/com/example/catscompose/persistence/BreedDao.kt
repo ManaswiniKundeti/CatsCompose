@@ -10,8 +10,11 @@ import com.example.catscompose.model.Breed
 interface BreedDao {
 
     @Query("SELECT * FROM Breed")
-    suspend fun getBreedList(): List<Breed>
+    suspend fun getBreeds(): List<Breed>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertBreedList(breed: List<Breed>)
+    suspend fun insertBreeds(breed: List<Breed>)
+
+    @Query("SELECT * FROM Breed WHERE id = :id_")
+    suspend fun getBreedById(id_: String): Breed?
 }

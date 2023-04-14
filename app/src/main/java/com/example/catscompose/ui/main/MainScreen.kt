@@ -29,6 +29,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -73,7 +74,10 @@ fun MainScreen() {
         ) {
             val selectedBreedId = it.arguments?.getString(ScreenNavigator.Details.argument0) ?: return@composable
 
-            BreedDetails(selectedBreedId) {
+            BreedDetails(
+                breedId = selectedBreedId,
+                viewModel = hiltViewModel()
+            ) {
                 navController.navigateUp()
             }
 
@@ -96,9 +100,7 @@ fun TitleText(name: String) {
 
 @Composable
 fun MainConent(viewModel: MainViewModel, selectBreed: (String) -> Unit) {
-
     val breedList: List<Breed> by viewModel.breedsList.collectAsState(initial = listOf())
-
     HomeContent(breedList, selectBreed)
 }
 
@@ -122,7 +124,7 @@ fun ImageCard(
         modifier = passedModifier
             .fillMaxWidth()
             .padding(16.dp)
-            .clickable(onClick = {selectBreed(breed.id)}),
+            .clickable(onClick = { selectBreed(breed.id) }),
         shape = RoundedCornerShape(15.dp),
         elevation = 5.dp
 

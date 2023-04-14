@@ -18,7 +18,7 @@ class MainViewModel @Inject constructor(
     private val _isLoading: MutableState<Boolean> = mutableStateOf(false)
     val isLoading: State<Boolean> get() = _isLoading
 
-    val breedsList: Flow<List<Breed>> = mainRepository.loadCatsBreedData(
+    val breedsList: Flow<List<Breed>> = mainRepository.loadCatBreeds(
         onStart = { _isLoading.value = true },
         onCompletion = { _isLoading.value = false },
         onError = { Timber.d(it) }

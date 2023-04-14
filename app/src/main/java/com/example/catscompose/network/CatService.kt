@@ -7,6 +7,6 @@ import retrofit2.http.GET
 interface CatService {
 
     @GET("breeds")
-    suspend fun fetchCatBreedsList(): ApiResponse<List<Breed>>
+    suspend fun fetchCatBreeds(): ApiResponse<List<Breed>>
 
 }
