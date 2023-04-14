@@ -14,6 +14,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Details
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.*
@@ -29,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -122,7 +124,10 @@ fun SampleContent(name: String) {
 }
 
 @Composable
-fun MainConent(viewModel: MainViewModel, selectBreed: (String) -> Unit) {
+fun MainConent(
+    viewModel: MainViewModel,
+    selectBreed: (String) -> Unit
+) {
     val breedList: List<Breed> by viewModel.breedsList.collectAsState(initial = listOf())
 
     val isLoading: Boolean by viewModel.isLoading
@@ -142,6 +147,14 @@ fun MainConent(viewModel: MainViewModel, selectBreed: (String) -> Unit) {
             }
 
         }
+    }
+    if (isLoading) {
+        CircularProgressIndicator(
+            modifier = Modifier
+                .padding(5.dp)
+                .size(10.dp, 10.dp),
+            color = Color.Green
+        )
     }
 }
 
@@ -172,6 +185,16 @@ fun CatsAppBar() {
         modifier = Modifier
             .statusBarsPadding()
             .height(58.dp)
+//        navigationIcon = if (navController.previousBackStackEntry != null) {
+//            IconButton(onClick = { navController.navigateUp() }) {
+//                Icon(
+//                    imageVector = Icons.Filled.ArrowBack,
+//                    contentDescription = "Back"
+//                )
+//            }
+//        } else {
+//            null
+//        }
     ) {
         Text(
             modifier = Modifier
