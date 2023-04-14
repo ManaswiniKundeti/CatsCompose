@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -65,17 +66,18 @@ fun BreedDetails(
                     horizontalArrangement = Arrangement.Start
                 ) {
                     Text(
-                        text = "NAME : ",
+                        text = "Name : ",
                         style = TextStyle(
-                            color = Color.Blue,
-                            fontWeight = FontWeight.Bold
+                            color = Color.Black,
+                            fontWeight = FontWeight.SemiBold
                         ),
                         fontSize = 20.sp)
                     Text(
                         text = it.name,
                         style = TextStyle(
                             color = Color.Blue,
-                            fontWeight = FontWeight.Bold
+                            fontWeight = FontWeight.Normal,
+                            fontFamily = FontFamily.SansSerif
                         ),
                         fontSize = 20.sp)
                 }
@@ -84,10 +86,10 @@ fun BreedDetails(
                     horizontalArrangement = Arrangement.Start
                 ) {
                     Text(
-                        text = "ORIGIN : ",
+                        text = "Origin : ",
                         style = TextStyle(
-                            color = Color.Blue,
-                            fontWeight = FontWeight.Bold
+                            color = Color.Black,
+                            fontWeight = FontWeight.SemiBold
                         ),
                         fontSize = 20.sp
                     )
@@ -95,7 +97,8 @@ fun BreedDetails(
                         text = it.origin,
                         style = TextStyle(
                             color = Color.Blue,
-                            fontWeight = FontWeight.Bold
+                            fontWeight = FontWeight.Normal,
+                            fontFamily = FontFamily.SansSerif
                         ),
                         fontSize = 20.sp
                     )
@@ -105,10 +108,10 @@ fun BreedDetails(
                     horizontalArrangement = Arrangement.Start
                 ) {
                     Text(
-                        text = "DESCRIPTION : ",
+                        text = "Description : ",
                         style = TextStyle(
-                            color = Color.Blue,
-                            fontWeight = FontWeight.Bold
+                            color = Color.Black,
+                            fontWeight = FontWeight.SemiBold
                         ),
                         fontSize = 20.sp
                     )
@@ -116,7 +119,8 @@ fun BreedDetails(
                         text = it.description,
                         style = TextStyle(
                             color = Color.Blue,
-                            fontWeight = FontWeight.Bold
+                            fontWeight = FontWeight.Normal,
+                            fontFamily = FontFamily.SansSerif
                         ),
                         fontSize = 20.sp
                     )
@@ -126,10 +130,10 @@ fun BreedDetails(
                     horizontalArrangement = Arrangement.Start
                 ) {
                     Text(
-                        text = "LIFE SPAN : ",
+                        text = "Lifespan : ",
                         style = TextStyle(
-                            color = Color.Blue,
-                            fontWeight = FontWeight.Bold
+                            color = Color.Black,
+                            fontWeight = FontWeight.SemiBold
                         ),
                         fontSize = 20.sp)
                     it.lifeSpan?.let { it1 ->
@@ -137,7 +141,8 @@ fun BreedDetails(
                             text = it1+"yrs",
                             style = TextStyle(
                                 color = Color.Blue,
-                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.Normal,
+                                fontFamily = FontFamily.SansSerif
                             ),
                             fontSize = 20.sp
                         )
