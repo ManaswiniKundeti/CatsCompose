@@ -11,7 +11,7 @@ A demo Android app using Jetpack Compose. Learning how compose works with MVVM, 
 </p>
 
 ## Download
-Go to the [Releases]() to download the latest APK.
+Go to the [Releases](https://github.com/ManaswiniKundeti/CatsCompose/releases/tag/v1.0) to download the latest APK.
 
 ## Screenshots
 <p align="center">
