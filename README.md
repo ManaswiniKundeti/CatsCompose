@@ -16,6 +16,7 @@ Go to the [Releases](https://github.com/ManaswiniKundeti/CatsCompose/releases/ta
 ## Screenshots
 <p align="center">
 <img src="/Screenshots/light_home.png" width="270"/>
+<img src="/Screenshots/light_details.png" width="270"/>
 <img src="/Screenshots/dark_home.png" width="270"/>
 </p>
 
