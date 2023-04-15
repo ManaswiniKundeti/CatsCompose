@@ -23,11 +23,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Gray
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -231,13 +234,13 @@ fun ImageCard(
             .padding(16.dp)
             .clickable(onClick = { selectBreed(breed.id) }),
         shape = RoundedCornerShape(15.dp),
-        elevation = 5.dp
+        elevation = 15.dp
 
     ) {
-        Column(modifier = Modifier.background(MaterialTheme.colors.onBackground)) {
+        Column {
             Box(modifier = Modifier
-                .height(180.dp)
-                .background(MaterialTheme.colors.onBackground)
+                .height(150.dp)
+                .background(MaterialTheme.colors.background)
                 .padding(10.dp)
             ) {
                 AsyncImage(
@@ -254,13 +257,17 @@ fun ImageCard(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(12.dp),
+                    .background(MaterialTheme.colors.onBackground),
+//                    .background(color = colorResource(id = R.color.gray_200)),
+//                    .border(width = 4.dp, color = Gray, shape = RoundedCornerShape(16.dp))
                 contentAlignment = Alignment.BottomCenter
             ) {
                 Text(
+                    modifier = Modifier.padding(12.dp),
                     text = breed.name,
+                    textAlign = TextAlign.Center,
                     style = TextStyle(
-                        color = MaterialTheme.colors.primary,
+                        color = MaterialTheme.colors.primaryVariant,
                         fontWeight = FontWeight.Bold
                     ),
                     fontSize = 20.sp)
