@@ -20,14 +20,18 @@ import androidx.compose.material.icons.filled.Details
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Gray
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -48,6 +52,7 @@ import timber.log.Timber
 import com.example.catscompose.R
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
@@ -68,7 +73,9 @@ fun MainScreen() {
         animationSpec = tween()
     )
 
-    NavHost(navController = navController, startDestination = ScreenNavigator.Home.route) {
+    NavHost(navController = navController, startDestination = ScreenNavigator.Home.route, modifier = Modifier.semantics {
+        testTagsAsResourceId = true
+    }) {
         // Display the UI defined inside the compose block for the home screen route
         composable(route = ScreenNavigator.Home.route) {
             MainConent(
@@ -214,7 +221,7 @@ fun CatsAppBar() {
 
 @Composable
 fun HomeContent(breedList: List<Breed>, selectBreed: (String) -> Unit) {
-    LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 150.dp))
+    LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 150.dp), modifier = Modifier.testTag("cats_list"))
     {
         items(breedList) { breed ->
             ImageCard(breed, selectBreed)
@@ -232,7 +239,8 @@ fun ImageCard(
         modifier = passedModifier
             .fillMaxWidth()
             .padding(16.dp)
-            .clickable(onClick = { selectBreed(breed.id) }),
+            .clickable(onClick = { selectBreed(breed.id) })
+            .testTag("card"),
         shape = RoundedCornerShape(15.dp),
         elevation = 15.dp
 
