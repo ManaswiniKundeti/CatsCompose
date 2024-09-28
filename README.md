@@ -39,7 +39,7 @@ Go to the [Releases](https://github.com/ManaswiniKundeti/CatsCompose/releases/ta
 
 ## Find this repository useful? :heart:
 Support it by joining __[stargazers](https://github.com/ManaswiniKundeti/CatsCompose/stargazers)__ for this repository. :star: <br>
-And __[follow](https://github.com/semani2)__ me for my next project! 🤩
+And __[follow](https://github.com/manaswinikundeti)__ me for my next project! 🤩
 
 # License
 ```xml
